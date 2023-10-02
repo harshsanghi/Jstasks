@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Instagram Username Interface</title>
+</head>
+<body>
+  <h1>Instagram Username Checker</h1>
+  <form id="usernameForm">
+    <label for="username">Enter your Instagram username:</label>
+    <input type="text" id="username" required>
+    <br>
+    <button type="submit">Check Username</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const usernameForm = document.getElementById('usernameForm');
+    const resultElement = document.getElementById('result');
+
+    usernameForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get the entered username
+      const username = document.getElementById('username').value.trim();
+
+      // Perform some basic validation (e.g., check if it's not empty)
+      if (!username) {
+        resultElement.textContent = 'Please enter a valid Instagram username.';
+        return;
+      }
+
+      // You can perform further validation or use an API to check the availability of the username
+      // For this example, let's assume we are checking availability locally
+      const isAvailable = Math.random() < 0.5; // Simulate availability randomly
+
+      if (isAvailable) {
+        resultElement.textContent = `Congratulations! "${username}" is available on Instagram.`;
+      } else {
+        resultElement.textContent = `Sorry, "${username}" is already taken on Instagram.`;
+      }
+    });
+  </script>
+</body>
+</html>

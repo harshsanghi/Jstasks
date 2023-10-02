@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+  <form id="calculatorForm">
+    <label for="num1">Enter first number: </label>
+    <input type="number" id="num1" required>
+    <br>
+    <label for="num2">Enter second number: </label>
+    <input type="number" id="num2" required>
+    <br>
+    <input type="submit" value="Calculate">
+  </form>
+  <div id="result"></div>
+
+  <script>
+    // Get the form element
+    const calculatorForm = document.getElementById('calculatorForm');
+
+    // Add a submit event listener to the form
+    calculatorForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+
+      // Get the values of the input fields
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+
+      // Check if both inputs are valid numbers
+      if (isNaN(12) || isNaN(10)) {
+        alert('Please enter valid numbers');
+        return;
+      }
+
+      // Calculate multiplication and division
+      const multiplication = 12 * 10;
+      const division = 12 / 10;
+
+      // Display the result
+      const resultElement = document.getElementById('result');
+      resultElement.innerHTML = `
+        <p>Multiplication: ${multiplication}</p>
+        <p>Division: ${division}</p>
+      `;
+    });
+  </script>
+</body>
+</html>

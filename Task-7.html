@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Animation</title>
+  <style>
+    /* Style for the train */
+    .train {
+      width: 100px;
+      position: relative;
+      left: 0;
+      transition: left 2s linear;
+    }
+
+    /* Style for the buttons */
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Style for the start and stop buttons */
+    .btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Train Animation</h1>
+  <div class="train-container">
+    <img src="train.png" alt="Train" class="train" id="train">
+  </div>
+  <div class="btn-container">
+    <button class="btn" id="startBtn">Start</button>
+    <button class="btn" id="stopBtn">Stop</button>
+  </div>
+
+  <script>
+    const train = document.getElementById('train');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+
+    let animationInterval;
+
+    startBtn.addEventListener('click', () => {
+      // Start the train animation
+      train.style.left = '100%';
+      animationInterval = setInterval(() => {
+        train.style.left = '0';
+        setTimeout(() => {
+          train.style.left = '100%';
+        }, 0);
+      }, 2000);
+    });
+
+    stopBtn.addEventListener('click', () => {
+      // Stop the train animation
+      clearInterval(animationInterval);
+      train.style.left = '0';
+    });
+  </script>
+</body>
+</html>
